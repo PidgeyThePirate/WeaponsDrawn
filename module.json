@@ -1,7 +1,7 @@
 {
-    "name": "WeaponsDrawn",
+    "name": "WeaponsDrawn - Pidgey's Mod",
     "title": "Weapons Drawn",
-    "description": "A module that automatically swap to an alternate token image when in the combat state.",
+    "description": "A module that automatically swap to an alternate token image when in the combat state. Contains modifications by PidgeyThePirate.",
     "version": "0.2",
     "author": "Vanir#0001 (discord)",
     "esmodules": [
@@ -12,7 +12,7 @@
     ],
     "minimumCoreVersion": "0.7.9",
     "compatibleCoreVersion": "0.7.9",
-    "url": "https://github.com/VanirDev/WeaponsDrawn",
-    "manifest": "https://raw.githubusercontent.com/VanirDev/WeaponsDrawn/main/module.json",
+    "url": "https://raw.githubusercontent.com/PidgeyThePirate/WeaponsDrawn",
+    "manifest": "https://raw.githubusercontent.com/PidgeyThePirate/WeaponsDrawn/add-video-to-picker/module.json",
     "download": "https://github.com/VanirDev/WeaponsDrawn/raw/main/WeaponsDrawn.zip"
   }
