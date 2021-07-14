@@ -76,7 +76,7 @@ function getStateTokenImgPath (actorEntity, inCombat) {
 function updateTokenImg (tokenId, inCombat, tokenImgPath, sceneId) {
 	tokenImgPath = tokenImgPath == undefined ? getStateTokenImgPath(game.actors.get(game.scenes.get(sceneId).getEmbeddedDocument("Token", tokenId).data.actorId), inCombat) : tokenImgPath;
 	if (game.actors.get(game.scenes.get(sceneId).getEmbeddedDocument("Token", tokenId).data.actorId).getFlag("WeaponsDrawn", "enabled")) {
-		game.scenes.get(sceneId).updateEmbeddedDocument("Token", {_id: tokenId, img:tokenImgPath});
+		game.scenes.get(sceneId).updateEmbeddedDocuments("Token",[ {_id: tokenId, img:tokenImgPath}]);
 	}
 }
 
