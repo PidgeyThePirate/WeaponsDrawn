@@ -26,12 +26,12 @@ Hooks.on('createCombatant', onCreateCombatant);
 Hooks.on('deleteCombatant', onDeleteCombatant);
 Hooks.on('createToken', onCreateToken);
 
-function onCreateToken (sceneDocument, options, userId) {
+function onCreateToken (tokenDocument, options, userId) {
 	if (game.userId !== userId) {
 		return;
 	}
 
-	updateTokenImg(sceneDocument._id, false, undefined, sceneDocument.data._id);
+	updateTokenImg(tokenDocument.data._id, false, undefined, tokenDocument.parent.data._id);
 }
 
 function onCreateCombatant (combatantDocument, options, userId) {
