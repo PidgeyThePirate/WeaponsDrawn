@@ -186,7 +186,7 @@ function onRenderTokenConfig (tokenConfig, html) {
 
 		let inCombatTokens = [];
 		let idleTokens = [];
-		for (const [combatKey, combat] of game.combats) {
+		for (const [combatKey, combat] of game.combats.entries()) {
 			combat = game.combats.get(combatKey);
 			if (combat.data.active) {
 				combat.data.combatants.forEach(combatant => {

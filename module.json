@@ -1,18 +1,18 @@
 {
-    "name": "WeaponsDrawn",
-    "title": "Weapons Drawn - Pidgey Version",
-    "description": "A module that automatically swaps to an alternate token image when in the combat state. Contains modifications by PidgeyThePirate.",
-    "version": "0.3",
-    "author": "Pidgey#0001 (discord)",
-    "esmodules": [
-      "WeaponsDrawn.js"
-    ],
-    "styles": [
-      "WeaponsDrawn.css"
-    ],
-    "minimumCoreVersion": "0.8.0",
-    "compatibleCoreVersion": "0.8.6",
-    "url": "https://raw.githubusercontent.com/PidgeyThePirate/WeaponsDrawn/add-video-to-picker",
-    "manifest": "https://raw.githubusercontent.com/PidgeyThePirate/WeaponsDrawn/add-video-to-picker/module.json",
-    "download": "https://raw.githubusercontent.com/PidgeyThePirate/WeaponsDrawn/add-video-to-picker/WeaponsDrawnPidgey.zip"
-  }
+  "name": "WeaponsDrawn",
+  "title": "Weapons Drawn",
+  "description": "A module that automatically swap to an alternate token image when in the combat state.",
+  "version": "0.2",
+  "author": "Vanir#0001 (discord)",
+  "esmodules": [
+    "WeaponsDrawn.js"
+  ],
+  "styles": [
+    "WeaponsDrawn.css"
+  ],
+  "minimumCoreVersion": "0.8.0",
+  "compatibleCoreVersion": "0.8.6",
+  "url": "https://raw.githubusercontent.com/PidgeyThePirate/WeaponsDrawn/8.6-update",
+  "manifest": "https://raw.githubusercontent.com/PidgeyThePirate/WeaponsDrawn/8.6-update/module.json",
+  "download": "https://raw.githubusercontent.com/PidgeyThePirate/WeaponsDrawn/8.6-update/WeaponsDrawnPidgey.zip"
+}
