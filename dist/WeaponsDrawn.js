@@ -26,33 +26,33 @@ Hooks.on('createCombatant', onCreateCombatant);
 Hooks.on('deleteCombatant', onDeleteCombatant);
 Hooks.on('createToken', onCreateToken);
 
-function onCreateToken (scene, token, userId) {
+function onCreateToken (sceneDocument, options, userId) {
 	if (game.userId !== userId) {
 		return;
 	}
 
-	updateTokenImg(token._id, false, undefined, scene._id);
+	updateTokenImg(token._id, false, undefined, sceneDocument.data._id);
 }
 
-function onCreateCombatant (combat, combatant, userId) {
+function onCreateCombatant (combatantDocument, options, userId) {
 	if (game.userId !== userId) {
 		return;
 	}
 
-	let token = game.scenes.get(combat.data.scene).getEmbeddedDocument("Token", combatant.tokenId).data;
+	let token = game.scenes.get(combatantDocument.data.scene).getEmbeddedDocument("Token", combatantDocument.data.tokenId).data;
 	const actorEntity = game.actors.get(token.actorId);
 	const tokenImgPath = getStateTokenImgPath(actorEntity, true);
-	updateTokenImg(token._id, true, tokenImgPath, combat.data.scene);
+	updateTokenImg(token._id, true, tokenImgPath, combatantDocument.data.scene);
 }
 
-function onDeleteCombatant (combat, combatant, userId) {
+function onDeleteCombatant (combatantDocument, options, userId) {
 	if (game.userId !== userId) {
 		return;
 	}
 
-	const actorEntity = game.actors.get(combatant.actor.data._id);
+	const actorEntity = game.actors.get(combatantDocument.data.actorId);
 	const tokenImgPath = getStateTokenImgPath(actorEntity, false);
-	updateTokenImg(combatant.token._id, true, tokenImgPath, combat.data.scene);
+	updateTokenImg(combatantDocument.data.tokenId, true, tokenImgPath, combatantDocument.data.scene);
 }
 
 function getStateTokenImgPath (actorEntity, inCombat) {
@@ -83,7 +83,7 @@ function updateTokenImg (tokenId, inCombat, tokenImgPath, sceneId) {
 function onRenderTokenConfig (tokenConfig, html) {
 	const tokenImageDiv = html.find($("input.image")).parent().parent();
 	const saveButton = html.find($('button[name="submit"]'))
-	let actorEntity = game.actors.get(tokenConfig.actor.data._id);
+	let actorEntity = game.actors.get(tokenConfigDocument.actor.data._id);
 	console.log(tokenImageDiv.parent());
 
 	let idleTokenImage = "";
