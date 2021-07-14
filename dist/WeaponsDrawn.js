@@ -26,7 +26,7 @@ Hooks.on('createCombatant', onCreateCombatant);
 Hooks.on('deleteCombatant', onDeleteCombatant);
 Hooks.on('createToken', onCreateToken);
 
-function onCreateToken (scene, token, _, userId) {
+function onCreateToken (scene, token, userId) {
 	if (game.userId !== userId) {
 		return;
 	}
@@ -34,18 +34,18 @@ function onCreateToken (scene, token, _, userId) {
 	updateTokenImg(token._id, false, undefined, scene._id);
 }
 
-function onCreateCombatant (combat, combatant, _, userId) {
+function onCreateCombatant (combat, combatant, userId) {
 	if (game.userId !== userId) {
 		return;
 	}
 
-	let token = game.scenes.get(combat.data.scene).getEmbeddedEntity("Token", combatant.tokenId);
+	let token = game.scenes.get(combat.data.scene).getEmbeddedDocument("Token", combatant.tokenId).data;
 	const actorEntity = game.actors.get(token.actorId);
 	const tokenImgPath = getStateTokenImgPath(actorEntity, true);
 	updateTokenImg(token._id, true, tokenImgPath, combat.data.scene);
 }
 
-function onDeleteCombatant (combat, combatant, _, userId) {
+function onDeleteCombatant (combat, combatant, userId) {
 	if (game.userId !== userId) {
 		return;
 	}
@@ -74,9 +74,9 @@ function getStateTokenImgPath (actorEntity, inCombat) {
 }
 
 function updateTokenImg (tokenId, inCombat, tokenImgPath, sceneId) {
-	tokenImgPath = tokenImgPath == undefined ? getStateTokenImgPath(game.actors.get(game.scenes.get(sceneId).getEmbeddedEntity("Token", tokenId).actorId), inCombat) : tokenImgPath;
-	if (game.actors.get(game.scenes.get(sceneId).getEmbeddedEntity("Token", tokenId).actorId).getFlag("WeaponsDrawn", "enabled")) {
-		game.scenes.get(sceneId).updateEmbeddedEntity("Token", {_id: tokenId, img:tokenImgPath});
+	tokenImgPath = tokenImgPath == undefined ? getStateTokenImgPath(game.actors.get(game.scenes.get(sceneId).getEmbeddedDocument("Token", tokenId).data.actorId), inCombat) : tokenImgPath;
+	if (game.actors.get(game.scenes.get(sceneId).getEmbeddedDocument("Token", tokenId).data.actorId).getFlag("WeaponsDrawn", "enabled")) {
+		game.scenes.get(sceneId).updateEmbeddedDocument("Token", {_id: tokenId, img:tokenImgPath});
 	}
 }
 
