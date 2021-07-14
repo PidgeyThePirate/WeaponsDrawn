@@ -186,7 +186,7 @@ function onRenderTokenConfig (tokenConfig, html) {
 
 		let inCombatTokens = [];
 		let idleTokens = [];
-		game.combats.forEach((combat, combatKey) => {
+		for (const [combatKey, combat] of game.combats) {
 			combat = game.combats.get(combatKey);
 			if (combat.data.active) {
 				combat.data.combatants.forEach(combatant => {
@@ -197,7 +197,7 @@ function onRenderTokenConfig (tokenConfig, html) {
 					}
 				});
 			}
-		});
+		}
 		
 		game.scenes.forEach((scene, sceneKey) => {
 			scene.data.tokens.forEach(token => {
