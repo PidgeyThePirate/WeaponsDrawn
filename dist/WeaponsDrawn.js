@@ -151,13 +151,13 @@ function onRenderTokenConfig (tokenConfig, html) {
 	}
 
 	html.find($('#WDIdleTokenButton')).click(async (ev) => {
-		await new FilePicker({ type:"image", current:idleTokenImage, callback: (path) => {
+		await new FilePicker({ type:"imagevideo", current:idleTokenImage, callback: (path) => {
 			html.find($("#WDIdleTokenPathBox")).val(path);
 			idleTokenImage = path;
 		}}).render(true);
 	});
 	html.find($('#WDCombatTokenButton')).click(async (ev) => {
-		await new FilePicker({ type:"image", current:combatTokenImage, callback: (path) => {
+		await new FilePicker({ type:"imagevideo", current:combatTokenImage, callback: (path) => {
 			html.find($("#WDCombatTokenPathBox")).val(path);
 			combatTokenImage = path;
 		}}).render(true);
