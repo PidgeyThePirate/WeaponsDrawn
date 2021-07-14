@@ -31,7 +31,7 @@ function onCreateToken (sceneDocument, options, userId) {
 		return;
 	}
 
-	updateTokenImg(token._id, false, undefined, sceneDocument.data._id);
+	updateTokenImg(sceneDocument._id, false, undefined, sceneDocument.data._id);
 }
 
 function onCreateCombatant (combatantDocument, options, userId) {
