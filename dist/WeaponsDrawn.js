@@ -39,10 +39,10 @@ function onCreateCombatant (combatantDocument, options, userId) {
 		return;
 	}
 
-	let token = game.scenes.get(combatantDocument.data.scene).getEmbeddedDocument("Token", combatantDocument.data.tokenId).data;
+	let token = game.scenes.get(combatantDocument.parent.data.scene).getEmbeddedDocument("Token", combatantDocument.data.tokenId).data;
 	const actorEntity = game.actors.get(token.actorId);
 	const tokenImgPath = getStateTokenImgPath(actorEntity, true);
-	updateTokenImg(token._id, true, tokenImgPath, combatantDocument.data.scene);
+	updateTokenImg(token._id, true, tokenImgPath, combatantDocument.parent.data.scene);
 }
 
 function onDeleteCombatant (combatantDocument, options, userId) {
@@ -52,7 +52,7 @@ function onDeleteCombatant (combatantDocument, options, userId) {
 
 	const actorEntity = game.actors.get(combatantDocument.data.actorId);
 	const tokenImgPath = getStateTokenImgPath(actorEntity, false);
-	updateTokenImg(combatantDocument.data.tokenId, true, tokenImgPath, combatantDocument.data.scene);
+	updateTokenImg(combatantDocument.data.tokenId, true, tokenImgPath, combatantDocument.parent.data.scene);
 }
 
 function getStateTokenImgPath (actorEntity, inCombat) {
@@ -83,7 +83,7 @@ function updateTokenImg (tokenId, inCombat, tokenImgPath, sceneId) {
 function onRenderTokenConfig (tokenConfig, html) {
 	const tokenImageDiv = html.find($("input.image")).parent().parent();
 	const saveButton = html.find($('button[name="submit"]'))
-	let actorEntity = game.actors.get(tokenConfigDocument.actor.data._id);
+	let actorEntity = game.actors.get(tokenConfig.actor.data._id);
 	console.log(tokenImageDiv.parent());
 
 	let idleTokenImage = "";
