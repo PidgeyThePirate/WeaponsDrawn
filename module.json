@@ -14,5 +14,5 @@
     "compatibleCoreVersion": "0.8.6",
     "url": "https://raw.githubusercontent.com/PidgeyThePirate/WeaponsDrawn/8.6-update",
     "manifest": "https://raw.githubusercontent.com/PidgeyThePirate/WeaponsDrawn/8.6-update/module.json",
-    "https://raw.githubusercontent.com/PidgeyThePirate/WeaponsDrawn/8.6-update/WeaponsDrawnPidgey.zip"
+    "download": "https://raw.githubusercontent.com/PidgeyThePirate/WeaponsDrawn/8.6-update/WeaponsDrawnPidgey.zip"
   }
